@@ -1,2 +1,4 @@
 keyAV.key
 keys.py
+.env
+tests/

@@ -33,6 +33,15 @@ def StockUrl():
         }
     # replace the apikey below with your own key from https://www.alphavantage.co/support/#api-key
     url = f"https://www.alphavantage.co/query?function={time_series['monthly']}&symbol={stock.upper()}&apikey={keyAlphaVantage}&datatype={data_type['json']}"
+    
+    # remove this block after test
+    stock_name = f"{stock.lower()}.{data_type['csv']}"
+    stock_url = f"https://www.alphavantage.co/query?function={time_series['monthly']}&symbol={stock.upper()}&apikey={keyAlphaVantage}&datatype={data_type['csv']}"
+    with requests.Session() as s:
+        _stockdata = s.get(stock_url)
+        with open(stock_name, "wb") as file:
+            file.write(_stockdata.content)
+    # end of block
     return url
 
 def DownloadStockData():
