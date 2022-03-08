@@ -1,3 +1,4 @@
 .env
 .env1
 tests/
+*.csv
