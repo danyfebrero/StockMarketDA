@@ -13,23 +13,28 @@ stock_data_functions =["OVERVIEW", "TIME_SERIES_MONTHLY"] # "TIME_SERIES_DAILY",
 def main():
    print(list_of_stocks())
 
+def file_extension(data_function):
+    if data_function == "OVERVIEW":
+        file_ext = "json"
+    else:
+        file_ext = "csv"
+    return(file_ext)
+
 def delete_cache(stock_list):
     for stock in stock_list:
-        for data_funtion in stock_data_functions:
-            file_name = f"{stock.lower()}_{data_funtion}.csv"
+        for data_function in stock_data_functions:
+            file_ext = file_extension(data_function)
+            file_name = f"{stock.lower()}_{data_function}.{file_ext}"
             if path.exists(file_name):
                 remove(file_name)
 
 def make_stock_urls(stock):
     """Creates urls to donwload the stock data from the API"""
     urls =[]
-    data_type = {
-        "json": "json",
-        "csv": "csv"
-        }
     # get your API key from https://www.alphavantage.co/support/#api-key
     for function in stock_data_functions:
-        urls.append(f"https://www.alphavantage.co/query?function={function}&symbol={stock.upper()}&apikey={keyAlphaVantage}&datatype={data_type['csv']}")
+        file_ext = file_extension(function)
+        urls.append(f"https://www.alphavantage.co/query?function={function}&symbol={stock.upper()}&apikey={keyAlphaVantage}&datatype={file_ext}")
     return urls
 
 def load_cache():
@@ -40,7 +45,7 @@ def load_cache():
     return(stocks_cache)        
 
 def ask_stocks_symbols():
-    symbols = input("Enter the desired stock symbols separated by a space between them: ")
+    symbols = input("Enter the desired stock symbols: ")
     stocks_symbols = symbols.split(" ")
     return(stocks_symbols)
 
@@ -56,7 +61,11 @@ def download_stocks_data(stock_list):
         for url in urls:
             with requests.Session() as s:
                 stock_data = s.get(url)
-                stock_name = f"{stock.lower()}_{stock_data_functions[counter]}.csv"
+                if "OVERVIEW" in url:
+                    file_ext = "json"
+                else:
+                    file_ext = "csv"
+                stock_name = f"{stock.lower()}_{stock_data_functions[counter]}.{file_ext}"
             with open(stock_name, "wb") as file:
                 file.write(stock_data.content)
             counter += 1
