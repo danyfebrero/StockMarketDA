@@ -7,14 +7,14 @@ from keys import get_key
 
 keyAlphaVantage = get_key()
 cache_file_name = "stockscache.csv"
-stock_data_functions =["OVERVIEW", "TIME_SERIES_MONTHLY"] # "TIME_SERIES_DAILY", "TIME_SERIES_WEEKLY",
+stock_data_functions =["OVERVIEW", "TIME_SERIES_DAILY", "EARNINGS"] # "TIME_SERIES_MONTHLY", "TIME_SERIES_WEEKLY",
 
 
 def main():
    print(list_of_stocks())
 
 def file_extension(data_function):
-    if data_function == "OVERVIEW":
+    if "OVERVIEW" in data_function or "EARNINGS" in data_function:
         file_ext = "json"
     else:
         file_ext = "csv"
@@ -61,10 +61,7 @@ def download_stocks_data(stock_list):
         for url in urls:
             with requests.Session() as s:
                 stock_data = s.get(url)
-                if "OVERVIEW" in url:
-                    file_ext = "json"
-                else:
-                    file_ext = "csv"
+                file_ext = file_extension(url)
                 stock_name = f"{stock.lower()}_{stock_data_functions[counter]}.{file_ext}"
             with open(stock_name, "wb") as file:
                 file.write(stock_data.content)
