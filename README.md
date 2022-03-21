@@ -28,25 +28,29 @@ Once you have Python installed in your environment, please use your command line
     pip instal -r requirement.txt
 
 ## How to run the project
-    ### For mac and linux:
-        * Location of module containing our app
-        export FLASK_APP=app.py
+    ### for command line run:
+        python3 stockAnalizer.py
 
-        * Enable developers features like debugging
-        export FLASK_ENV=development
+    ### for UI (not ready yet)
+        #### For mac and linux:
+            * Location of module containing our app
+            export FLASK_APP=app.py
 
-        * Run the application
-        flask run
+            * Enable developers features like debugging
+            export FLASK_ENV=development
 
-    ### For windows:
-        * Location of module containing our app
-        set FLASK_APP=flashcards.py
+            * Run the application
+            flask run
 
-        * Enable developers features like debugging
-        set FLASK_ENV=development
+        #### For windows:
+            * Location of module containing our app
+            set FLASK_APP=flashcards.py
 
-        * Run the application
-        flask run
+            * Enable developers features like debugging
+            set FLASK_ENV=development
+
+            * Run the application
+            flask run
 
 ## Data model (stock_data_collector.py)
 
