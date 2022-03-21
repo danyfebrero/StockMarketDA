@@ -22,10 +22,13 @@ We recommend Python 3.9.7 or higher. If you do not yet have Python installed, pl
 
 Once you have Python installed in your environment, please use your command line interface to install the following Python libraries:
  * Create a virtual enviroment 
-    python3 -m venv venv
-    source ./venv/bin/activate
+
+       python3 -m venv venv
+        source ./venv/bin/activate
+ 
  * installing packages
-    pip instal -r requirement.txt
+
+       pip instal -r requirement.txt
 
 ## How to run the project
 ### for command line run:
