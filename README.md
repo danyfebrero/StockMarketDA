@@ -44,7 +44,7 @@ Once you have Python installed in your environment, please use your command line
 
 #### For windows:
 * Location of module containing our app:
-    set FLASK_APP=flashcards.py
+        set FLASK_APP=flashcards.py
 
 * Enable developers features like debugging:
     set FLASK_ENV=development
