@@ -33,23 +33,23 @@ Once you have Python installed in your environment, please use your command line
 
 ### for UI (not ready yet)
 #### For mac and linux:
- * Location of module containing our app
+ * Location of module containing our app:
     export FLASK_APP=app.py
 
-* Enable developers features like debugging
+* Enable developers features like debugging:
     export FLASK_ENV=development
 
-* Run the application
+* Run the application:
     flask run
 
 #### For windows:
-* Location of module containing our app
+* Location of module containing our app:
     set FLASK_APP=flashcards.py
 
-* Enable developers features like debugging
+* Enable developers features like debugging:
     set FLASK_ENV=development
 
-* Run the application
+* Run the application:
     flask run
 
 ## Data model (stock_data_collector.py)
