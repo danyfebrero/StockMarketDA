@@ -9,13 +9,13 @@ https://github.com/danyfebrero/StockMarketDA
 Create an Alpha Vantage API key for free at https://www.alphavantage.co/support/#api-key)
      
 ## Description
-    The project is comprised of the following sections:
-        * Dependencies and set up project
-        * Data model
-        * Frontend UI
-        * Backend logic
-        * Set up Flask URL routing
-        * Run the web application locally
+The project is comprised of the following sections:
+* Dependencies and set up project
+* Data model
+* Frontend UI
+* Backend logic
+* Set up Flask URL routing
+* Run the web application locally
 
 ## Dependencies and set up project
 We recommend Python 3.9.7 or higher. If you do not yet have Python installed, please follow the download instructions on the official python.org website.
@@ -28,29 +28,29 @@ Once you have Python installed in your environment, please use your command line
     pip instal -r requirement.txt
 
 ## How to run the project
-    ### for command line run:
-        python3 stockAnalizer.py
+### for command line run:
+    python3 stockAnalizer.py
 
-    ### for UI (not ready yet)
-        #### For mac and linux:
-            * Location of module containing our app
-            export FLASK_APP=app.py
+### for UI (not ready yet)
+#### For mac and linux:
+ * Location of module containing our app
+    export FLASK_APP=app.py
 
-            * Enable developers features like debugging
-            export FLASK_ENV=development
+* Enable developers features like debugging
+    export FLASK_ENV=development
 
-            * Run the application
-            flask run
+* Run the application
+    flask run
 
-        #### For windows:
-            * Location of module containing our app
-            set FLASK_APP=flashcards.py
+#### For windows:
+* Location of module containing our app
+    set FLASK_APP=flashcards.py
 
-            * Enable developers features like debugging
-            set FLASK_ENV=development
+* Enable developers features like debugging
+    set FLASK_ENV=development
 
-            * Run the application
-            flask run
+* Run the application
+    flask run
 
 ## Data model (stock_data_collector.py)
 
