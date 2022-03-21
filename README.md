@@ -48,7 +48,7 @@ Once you have Python installed in your environment, please use your command line
         * Run the application
         flask run
 
-## Data model (stock data collector)
+## Data model (stock_data_collector.py)
 
  * Created a dictionary and lists, I did populate it with several values, retrieve at least one value, and use it in my program.
  * Created and call at least 3 functions or methods, at least one of which return a value that is used somewhere else in my code
@@ -59,5 +59,5 @@ Once you have Python installed in your environment, please use your command line
  * Implement a log that records errors, invalid inputs, or other important events and writes them to a text file.
 
 
-## Frontend UI
+## Frontend UI (app.py)
  * Visualized data in a graph, chart, or other visual representation of data.
