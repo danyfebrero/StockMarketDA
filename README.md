@@ -34,6 +34,7 @@ Once you have Python installed in your environment, please use your command line
 ### for UI (not ready yet)
 #### For mac and linux:
  * Location of module containing our app:
+ 
     export FLASK_APP=app.py
 
 * Enable developers features like debugging:
