@@ -24,7 +24,8 @@ Once you have Python installed in your environment, please use your command line
  * Create a virtual enviroment 
 
        python3 -m venv venv
-        source ./venv/bin/activate
+       
+       source ./venv/bin/activate
  
  * installing packages
 
