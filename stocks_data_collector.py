@@ -1,5 +1,3 @@
-from operator import contains
-from typing import Counter
 import requests, csv, subprocess
 from os import path
 from os import remove
@@ -7,7 +5,7 @@ from keys import get_key
 
 keyAlphaVantage = get_key()
 cache_file_name = "stockscache.csv"
-stock_data_functions =["OVERVIEW", "TIME_SERIES_DAILY", "EARNINGS"] # "TIME_SERIES_MONTHLY", "TIME_SERIES_WEEKLY",
+stock_data_functions =["OVERVIEW", "TIME_SERIES_DAILY"] # "TIME_SERIES_MONTHLY", "TIME_SERIES_WEEKLY", "EARNINGS"
 
 
 def main():

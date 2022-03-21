@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <!-- Basic Page Needs
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta charset="utf-8">
+  <title>{% block title %}{% endblock %}</title>
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <!-- Mobile Specific Metas
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- FONT
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+
+  <!-- CSS
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="stylesheet" 
+  href="{{ url_for('static', filename='normalize.css') }}">
+  <link rel="stylesheet" 
+  href="{{ url_for('static', filename='skeleton.css') }}">
+  <link rel="stylesheet" 
+  href="{{ url_for('static', filename='gh.css') }}">
+  <!-- Favicon
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="icon" type="image/png" 
+  href="{{ url_for('static', filename='favicon.png') }}">
+
+</head>
+<body>
+  <nav class="nav-show">
+    <div class="container">
+        <ul>
+            <li><a href="#home">Interactive Stock Visualizer</a></li>
+            <li><a href="#link">Link 1</a></li>
+            <li>
+                <a href="#menu">Menu 1</a>
+                <ul>
+                    <li><a href="#">Link 1</a></li>
+                    <li><a href="#">Link 2</a></li>
+                </ul>
+            </li>
+            <li><a href="#link">Link 2</a></li>
+            <li>
+                <a href="#menu">Menu 2</a>
+                <ul>
+                    <li><a href="#">Link 1</a></li>
+                    <li><a href="#">Link 2</a></li>
+                    <li><a href="#">Link 3</a></li>
+                    <li><a href="#">Link 4</a></li>
+                </ul>
+            </li>
+            <li class="u-pull-right"><a href="#about">About</a></li>
+            <!-- <li class="right"><a href="#alpha">Alpha Vantage</a></li> -->
+            <li class="icon">
+                <a href="javascript:void(0);" onclick="toggleMobileNav();">&#9776;</a>
+            </li>
+        </ul>
+    </div>
+  </nav>
+  <!-- Primary Page Layout
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <div class="container">
+    <div class="row">
+      <div style="margin-top: 10%">
+        {% block content %}{% endblock %}
+      </div>
+    </div>
+  </div>
+
+<!-- End Document
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="{{ url_for('static', filename='gh.js') }}"></script>
+  
+</body>
+</html>

@@ -7,6 +7,7 @@ from stocks_data_collector import stock_data_functions
 
 
 def main():
+    # Getting the stocks on cache
     stock_list = list_of_stocks()
     stock_data_file = f"{stock_list[0]}_{stock_data_functions[1]}.csv"
     stock_overview_file = f"{stock_list[0]}_{stock_data_functions[0]}.json"
