@@ -24,6 +24,8 @@ def remove_key_file():
 def get_key():
     while key_exist():
         user_input = input("Do you want to work with the last session API key? (yes / no): ")
+        if len(user_input) == 0:
+            user_input = "invalid"
         if user_input[0].lower() == "y":
             subprocess.call(["clear"])
             break
