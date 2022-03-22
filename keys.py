@@ -6,24 +6,40 @@ load_dotenv()
 
 subprocess.call(["clear"])
 
-def save_key():
+def create_key(key_input):
     with open(".env","w") as file:
-        key_input = input("Please introduce your Alpha Vantage API key (if you don't have a key please create one for free at https://www.alphavantage.co/support/#api-key): ")
         key =f"keyAlphaVantage={key_input}"
         file.write(key)
-def get_key():
-    if exists (".env") and path.getsize(".env") != 0:
-        while True:
-            user_input = input("Do you want to work with the last session API key? (yes / no): ")
-            if user_input[0].lower() == "y" or user_input[0].lower() == "n":
-                break
-            else:
-                subprocess.call(["clear"])
-                print("Enter a valid response or press control + c to close.")
-        if user_input[0].lower() == "n":
-            save_key()
-    else:
-        save_key()
-    subprocess.call(["clear"])
+
+def key_exist():
+    return exists (".env") and path.getsize(".env") != 0
+
+def load_key():
     keyAlphaVantage = os.getenv("keyAlphaVantage")
     return keyAlphaVantage
+
+def remove_key_file():
+    os.remove(".env")
+
+def get_key():
+    while key_exist():
+        user_input = input("Do you want to work with the last session API key? (yes / no): ")
+        if user_input[0].lower() == "y":
+            subprocess.call(["clear"])
+            break
+        elif user_input[0].lower() == "n":
+            remove_key_file()
+            continue
+        else:
+            subprocess.call(["clear"])
+            print("Enter a valid response or press control + c to close.")
+    else:
+        key_input = input("Please introduce your Alpha Vantage API key (if you don't have a key please create one for free at https://www.alphavantage.co/support/#api-key): ")
+        create_key(key_input)
+
+    keyAlphaVantage = load_key()
+    return keyAlphaVantage
+
+if __name__ == "__main__":
+    key = get_key()
+    print(key)
