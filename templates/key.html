@@ -3,5 +3,26 @@
 {% block title %}Interactive Stock Visualizer{% endblock %}
 
 {% block content %}
+{% if key_exist == "True" %}
+    <div class="six columns">
+        <p>
+        You already have an Alpha Vantage API key. You can use a new one by submitting the key.
+        </p>
+    </div>
+    
+{% else %}
+    <div class="six columns">
+        <p>This stock visualizer uses the Alpha Vantage API, 
+            <em><a href="https://www.alphavantage.co/support/#api-key">claim your free API key </a></em>
+            and start exploring by submitting your key.
+        </p>
+    </div>
+{% endif %}
+<div class="six columns">
+    <form method="post" action="">
+        <input class="u-full-width" type="text" name="key" placeholder="API Key"><br>
+        <button class="button-primary u-full-width" type="submit">Submit</button>
+    </form>
+</div>
 
 {% endblock %}

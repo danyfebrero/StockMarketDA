@@ -11,6 +11,8 @@ stock_data_functions =["OVERVIEW", "TIME_SERIES_DAILY"] # "TIME_SERIES_MONTHLY",
 def main():
    print(list_of_stocks())
 
+
+
 def file_extension(data_function):
     if "OVERVIEW" in data_function or "EARNINGS" in data_function:
         file_ext = "json"
@@ -82,6 +84,7 @@ def list_of_stocks():
         save_cache(stock_symbols)
         download_stocks_data(stock_symbols)
     return (stock_symbols)
+
 
 if __name__ == "__main__":
     main()

@@ -1,0 +1,109 @@
+{% extends "base.html" %}
+
+{% block title %}Interactive Stock Visualizer{% endblock %}
+
+{% block content %}
+        <div class="find_symbol">
+            <form method="post">
+                <div class="user_input">
+                    <input class="u-full-width" type="text" name="stock_symbol" placeholder="Symbol">
+                    <button class="button-primary u-full-width" type="submit">Find Symbol</button>
+                </div>
+            </form>
+        </div>
+        <div class="basic_info">
+            <h5>{{stock_overview.Name}}, {{stock_overview.AssetType}} ({{stock_overview.Symbol}})</h5>
+        </div>
+        <div class="chart" id="chart"></div>
+
+        <div class="detailed_info">
+            <br><br>
+            <table class="u-full-width">
+                <tbody>
+                    <tr>
+                      <td>Exchange</td>
+                      <td>{{stock_overview.Exchange}}</td>
+                    </tr>
+                    <tr>
+                      <td>Sector</td>
+                      <td>{{stock_overview.Sector}}</td>
+                    </tr>
+                    <tr>
+                        <td>Industry</td>
+                        <td>{{stock_overview.Industry}}</td>
+                      </tr>
+                      <tr>
+                        <td>1 Year Target</td>
+                        <td>{{stock_overview.Name}}</td>
+                      </tr>
+                      <tr>
+                        <td>Today's High/Low</td>
+                        <td>${{stock_data.high[0]}}/${{stock_data.low[0]}}</td>
+                      </tr>
+                      <tr>
+                        <td>Share Volume</td>
+                        <td>{{stock_data.volume[0]}}</td>
+                      </tr>
+                      <tr>
+                        <td>Average Volumee</td>
+                        <td>{{stock_overview.Name}}</td>
+                      </tr>
+                      <tr>
+                        <td>Previous Close</td>
+                        <td>${{stock_data.close[1]}}</td>
+                      </tr>
+                      <tr>
+                        <td>52 Week High/Low</td>
+                        <td>${{stock_overview['52WeekHigh']}}/${{stock_overview['52WeekLow']}}</td>
+                      </tr>
+                      <tr>
+                        <td>Market Cap</td>
+                        <td>{{stock_overview.MarketCapitalization}}</td>
+                      </tr>
+                      <tr>
+                        <td>P/E Ratio</td>
+                        <td>{{stock_overview.PERatio}}</td>
+                      </tr>
+                      <tr>
+                        <td>Forward P/E</td>
+                        <td>{{stock_overview.ForwardPE}}</td>
+                      </tr>
+                      <tr>
+                        <td>Earnings Per Share(EPS)</td>
+                        <td>${{stock_overview.EPS}}</td>
+                      </tr>
+                      <tr>
+                        <td>Ex Dividend Date</td>
+                        <td>{{stock_overview.ExDividendDate}}</td>
+                      </tr>
+                      <tr>
+                        <td>Dividend Pay Date</td>
+                        <td>{{stock_overview.DividendDate}}</td>
+                      </tr>
+                      <tr>
+                        <td>Dividend Yield</td>
+                        <td>{{stock_overview['DividendYield']}}</td>
+                      </tr>
+                      <tr>
+                        <td>Beta</td>
+                        <td>{{stock_overview.Beta}}</td>
+                      </tr>
+                  </tbody>
+            </table>
+        </div>
+        <div class="about">
+            
+            <h5>About {{stock_overview.Name}}</h5>
+            <p>
+                {{stock_overview.Address}} <br>
+            </p>
+            <p>{{stock_overview.Description}}</p>
+        </div>
+{% endblock %}
+{% block chart %}
+  <script src='https://cdn.plot.ly/plotly-latest.min.js'></script>
+  <script type='text/javascript'>
+    var graphs = {{graphJSON | safe}};
+    Plotly.plot('chart',graphs,{});
+  </script>
+{% endblock %}

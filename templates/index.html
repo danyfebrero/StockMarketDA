@@ -4,14 +4,29 @@
 
 {% block content %}
 <h2>Welcome to my Interective Stock Visualizer!</h2>
-    <p>
-        This is a final project for the Code Louisville Data Analysis Pathway - Course 1.
-    </p>
-    <p>In order to use this visualizer
-        <em>you need an API key</em>
-        from <a href="https://www.alphavantage.co/support/#api-key">Alpha Vantage.</a>
-    </p>
-    <p>If you alredy have the API key  
-        <a href="https://www.alphavantage.co/support/#api-key">submit here.</a>
-    </p>
+    
+    {% if key_exist == "True" %}
+        <p>You alredy have an API key, but if you want to use another one please  
+            <a href="{{ url_for('api_key') }}">submit here.</a>
+        </p>
+        <div class="find_symbol">
+            <form method="post">
+                <div class="user_input">
+                    <div class="six columns">
+                        <input class="u-full-width" type="text" id="searchBar" name="stock_symbol" placeholder="Symbol">
+                    </div>
+                    <div class="six columns">
+                        <button class="button-primary u-full-width" type="submit">Find Symbol</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    {% else %}
+        <p>In order to use this visualizer
+            <em>you need an API key</em>
+            from <a href="https://www.alphavantage.co/support/#api-key">Alpha Vantage.</a>
+        </p>
+    {% endif %}
+    
+    
 {% endblock %}

@@ -30,6 +30,10 @@ Once you have Python installed in your environment, please use your command line
  * installing packages
 
        pip instal -r requirement.txt
+ 
+ * To list all the virtual environments (if using the anaconda distribution):
+
+       conda info --envs 
 
 ## How to run the project
 ### for command line run:

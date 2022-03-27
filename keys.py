@@ -19,7 +19,8 @@ def load_key():
     return keyAlphaVantage
 
 def remove_key_file():
-    os.remove(".env")
+    if key_exist():
+        os.remove(".env")
 
 def get_key():
     while key_exist():
@@ -38,7 +39,7 @@ def get_key():
     else:
         key_input = input("Please introduce your Alpha Vantage API key (if you don't have a key please create one for free at https://www.alphavantage.co/support/#api-key): ")
         create_key(key_input)
-
+    
     keyAlphaVantage = load_key()
     return keyAlphaVantage
 

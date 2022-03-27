@@ -3,5 +3,19 @@
 {% block title %}Interactive Stock Visualizer{% endblock %}
 
 {% block content %}
-
+    {% if key_exist == "True" %}
+        <div class="find_symbol">
+            <form method="post">
+                <div class="user_input">
+                    <input type="text" name="stock_symbol" class="u-full-width"  placeholder="Symbol">
+                    <button class="button-primary u-full-width" type="submit">Find Symbol</button>
+                </div>
+            </form>
+        </div>
+    {% else %}
+        <p>In order to use this visualizer <em>you need an API key</em>
+            from <a href="https://www.alphavantage.co/support/#api-key">Alpha Vantage,</a>
+            and <a href="{{ url_for('api_key') }}">submit the key here.</a> 
+        </p>
+    {% endif %}
 {% endblock %}

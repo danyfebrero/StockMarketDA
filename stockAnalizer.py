@@ -42,7 +42,6 @@ def create_candlestick_chart(stock_dataframe, stock_name):
             )
         ]
     )
-    # figure.update_layout(xaxis_rangeslider_visible = False)
     figure.update_layout(
         title = stock_name,
         yaxis_title = "Stock Price USD ($)",
