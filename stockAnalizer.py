@@ -2,8 +2,6 @@ from os import stat
 import pandas as pd
 import plotly.graph_objects as go
 import json, csv, subprocess
-
-from scipy.__config__ import show
 from stocks_data_collector import list_of_stocks
 from stocks_data_collector import stock_data_functions
 import keys
