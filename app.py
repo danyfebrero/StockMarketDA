@@ -57,7 +57,6 @@ def stock_view(symbol):
 @app.route("/api_key/", methods=["GET", "POST"])
 def api_key():
     if request.method == "POST":
-        #from has been submitted, process data
         key = request.form['key']
         create_key(key)
         return redirect(url_for('stock'))
