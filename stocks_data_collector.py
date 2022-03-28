@@ -9,7 +9,7 @@ stock_data_functions =["OVERVIEW", "TIME_SERIES_DAILY"] # "TIME_SERIES_MONTHLY",
 
 
 def main():
-   print(list_of_stocks())
+   print(list_of_stocks(True))
 
 
 
@@ -67,14 +67,10 @@ def download_stocks_data(stock_list):
                 file.write(stock_data.content)
             counter += 1
 
-def list_of_stocks():
+def list_of_stocks(cache):
     if path.exists(cache_file_name) and path.getsize(cache_file_name) != 0:
         stock_symbols = load_cache()
-        while True:
-            user_input = input("Do you want to work with the data from the last session? (yes / no): ").lower()
-            if user_input[0] == "y" or user_input[0] == "n":
-                break
-        if user_input[0] == "n":
+        if cache == False:
             delete_cache(stock_symbols)
             stock_symbols = ask_stocks_symbols()
             save_cache(stock_symbols)
