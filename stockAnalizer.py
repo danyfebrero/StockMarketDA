@@ -1,4 +1,3 @@
-from os import stat
 import pandas as pd
 import plotly.graph_objects as go
 import json, csv, subprocess
