@@ -33,7 +33,10 @@ def get_stocks_data(stock_symbol):
     for url in urls:
         if file_extension(url) == "csv":
             stock_data = pd.read_csv(url)
-            stock_data = stock_data.set_index(pd.DatetimeIndex(stock_data['timestamp'].values))
+            try:
+                stock_data = stock_data.set_index(pd.DatetimeIndex(stock_data['timestamp'].values))
+            except KeyError:
+                pass
         elif file_extension(url) == "json":
             with requests.Session() as s:
                 data = s.get(url).content

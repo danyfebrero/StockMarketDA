@@ -1,3 +1,4 @@
+from os import stat
 import pandas as pd
 import plotly.graph_objects as go
 import json, csv, subprocess
@@ -39,15 +40,38 @@ def show_symbol_info(cache):
         overview_data.update(json.load(overview_file))
     stock_dataframe = pd.read_csv(stock_data_file)
 
-    #setting timestamp as index of the dataframe
-    stock_dataframe = stock_dataframe.set_index(pd.DatetimeIndex(stock_dataframe['timestamp'].values))
+    try:
+        #setting timestamp as index of the dataframe
+        stock_dataframe = stock_dataframe.set_index(pd.DatetimeIndex(stock_dataframe['timestamp'].values))
 
-    print('')
-    print("Stock Symbol:",overview_data["Symbol"],"\n")
-    print("Description:",overview_data["Description"],"\n")
-    print("Address:",overview_data["Address"],"\n")
+        print('')
+        print(overview_data["Symbol"])
+        print(overview_data["Name"])
+        
+        print(f"${stock_dataframe.close[0]}","\n")
 
-    create_candlestick_chart(stock_dataframe, overview_data["Name"])
+        print("Description:\n",overview_data["Description"],"\n")
+        print("Address:",overview_data["Address"],"\n")
+        intrinsic_value = float(overview_data["EPS"]) * float(overview_data["PERatio"])
+        print(f"Intrinsic value: {intrinsic_value}")
+
+        print("Stats:\n")
+        stats = stock_dataframe.iloc[0]
+        print("Last update:", stats['timestamp'],"\n")
+        stats = stats[['open','high','low','close','volume']]
+        stats["52WeekHigh"]= overview_data["52WeekHigh"]
+        stats["52WeekLow"]= overview_data["52WeekLow"]
+        stats["PE/Ratio"]= overview_data["PERatio"]
+        stats["DividendPerShare"]= overview_data["DividendPerShare"]
+
+        print(stats.to_string(),"\n")
+
+        create_candlestick_chart(stock_dataframe, overview_data["Name"])
+    except KeyError:
+        if len(overview_data) == 0:
+            print("Invalid stock symbols, please try again.")
+        else:
+            print("You exceeded the usage/frequency limits: 5 API requests per minute and 500 requests per day.")
 
 def create_candlestick_chart(stock_dataframe, stock_name):
     # Create an interactive candlestick chart
@@ -83,15 +107,15 @@ if __name__ == "__main__":
         if option == 1:
             subprocess.call(["clear"]) 
             find_symbol()
-            input("Press Enter to continue...")
+            
         elif option == 2:
             subprocess.call(["clear"]) 
             get_stock_on_cache()
-            input("Press Enter to continue...")
+            
         elif option == 3:
             subprocess.call(["clear"]) 
             change_api_key()
-            input("Press Enter to continue...")
+            
         elif option == 4:
             subprocess.call(["clear"]) 
             print('Thanks you!')

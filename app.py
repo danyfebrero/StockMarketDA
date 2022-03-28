@@ -40,13 +40,18 @@ def stock_view(symbol):
         return redirect(url_for('stock_view', symbol=symbol))
     try:
         stock_data, stock_overview = get_stocks_data(symbol.upper())
+        intrinsic_value = float(stock_overview["EPS"]) * float(stock_overview["PERatio"])
         fig = create_candlestick_chart(stock_data, "Daily Time Series")
         graphJSON = json.dumps(fig, cls=plotly.utils.PlotlyJSONEncoder)
-        return render_template("stock_view.html", symbol=symbol, stock_data=stock_data, stock_overview=stock_overview, graphJSON=graphJSON)
+        return render_template("stock_view.html", symbol=symbol, stock_data=stock_data, stock_overview=stock_overview, intrinsic_value=intrinsic_value, graphJSON=graphJSON)
     except IndexError:
         abort(404)
     except KeyError:
-        return render_template("error.html")
+        if len(stock_overview) == 0:
+            invalid_symbol = "True"
+        else:
+            invalid_symbol = "False"
+        return render_template("error.html",invalid_symbol=invalid_symbol)
 
 
 @app.route("/api_key/", methods=["GET", "POST"])

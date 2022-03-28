@@ -39,7 +39,7 @@ Once you have Python installed in your environment, please use your command line
 ### for command line run:
     python3 stockAnalizer.py
 
-### for UI (not ready yet)
+### for UI
 #### For mac and linux:
  * Location of module containing our app:
 
@@ -74,7 +74,6 @@ Once you have Python installed in your environment, please use your command line
  * Analyzed text and display information about it 
  * Read data from an external file, such as text, JSON, CSV, etc, and use that data in your application.
  * Connect to an external/3rd party API and read data into your app
- * Implement a log that records errors, invalid inputs, or other important events and writes them to a text file.
 
 
 ## Frontend UI (app.py)
