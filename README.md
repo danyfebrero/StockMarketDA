@@ -12,10 +12,9 @@ Create an Alpha Vantage API key for free at https://www.alphavantage.co/support/
 The project is comprised of the following sections:
 * Dependencies and set up project
 * Data model
-* Frontend UI
 * Backend logic
-* Set up Flask URL routing
-* Run the web application locally
+* Set a Console application
+* Set up of a Frontend UI
 
 ## Dependencies and set up project
 We recommend Python 3.9.7 or higher. If you do not yet have Python installed, please follow the download instructions on the official python.org website.
@@ -31,9 +30,6 @@ Once you have Python installed in your environment, please use your command line
 
        pip instal -r requirement.txt
  
- * To list all the virtual environments (if using the anaconda distribution):
-
-       conda info --envs 
 
 ## How to run the project
 ### for command line run:
