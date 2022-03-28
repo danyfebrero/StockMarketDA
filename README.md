@@ -66,15 +66,24 @@ Once you have Python installed in your environment, please use your command line
     
         flask run
 
-## Data model (stock_data_collector.py)
-
+## FEATURE LIST:
+### Category 1: Python Programming Basics:
+ * Implemented a “master loop” console application where the user can repeatedly enter commands/perform actions, including choosing to exit the program. (stockAnalizer.py >> into dunder name funtion)	
  * Created a dictionary and lists, I did populate it with several values, retrieve at least one value, and use it in my program.
  * Created and call at least 3 functions or methods, at least one of which return a value that is used somewhere else in my code
- * Calculated and displayed data based on an external factor.
- * Analyzed text and display information about it 
+ * Calculated and displayed data based on an external factor. (stockAnalizer.py and app.py)
+ * Analyzed text and display information about it (stockAnalizer.py and app.py)
+
+### Category 2: Utilize External Data:
+ * Connect to an external/3rd party API and read data into your app (stock_data_collector.py and model.py)
  * Read data from an external file, such as text, JSON, CSV, etc, and use that data in your application.
- * Connect to an external/3rd party API and read data into your app
 
+### Category 3: Data Display
+ * Visualized data in a graph, chart, or other visual representation of data. (stockAnalizer.py and app.py)
+ * Display data in tabular form (stockAnalizer.py)
 
-## Frontend UI (app.py)
- * Visualized data in a graph, chart, or other visual representation of data.
+### Category 4: Best Practices
+ * The program utilize a virtual environment and document library dependencies in a requirements.txt file.
+
+### “STRETCH” FEATURE LIST:
+* Use pandas, matplotlib, and/or numpy to perform a data analysis project. Ingest 2 or more pieces of data, analyze that data in some manner, and display a new result to a graph, chart, or other display.
