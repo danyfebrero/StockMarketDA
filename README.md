@@ -1,13 +1,10 @@
 # StockMarketDA
 Stock Market Analyzer for Code Louisville
-In this project, I create an interactive stock visualization website with Python/Flask and Alpha Vantage APIs. 
+In this project, I create an interactive stock visualization website using Python/Flask and Alpha Vantage APIs. 
 
 ## GitHub repository
 https://github.com/danyfebrero/StockMarketDA
 
-## Requirements
-Create an Alpha Vantage API key for free at https://www.alphavantage.co/support/#api-key)
-     
 ## Description
 The project is comprised of the following sections:
 * Dependencies and set up project
@@ -16,7 +13,9 @@ The project is comprised of the following sections:
 * Set a Console application
 * Set up of a Frontend UI
 
-## Dependencies and set up project
+## Requirements
+Create an Alpha Vantage API key for free at https://www.alphavantage.co/support/#api-key)
+     
 We recommend Python 3.9.7 or higher. If you do not yet have Python installed, please follow the download instructions on the official python.org website.
 
 Once you have Python installed in your environment, please use your command line interface to install the following Python libraries:
