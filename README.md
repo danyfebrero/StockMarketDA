@@ -27,7 +27,7 @@ Once you have Python installed in your environment, please use your command line
  
  * installing packages
 
-       pip instal -r requirement.txt
+       pip instal -r requirements.txt
  
 
 ## How to run the project
